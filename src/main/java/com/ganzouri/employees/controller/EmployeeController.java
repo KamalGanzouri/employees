@@ -34,13 +34,13 @@ public class EmployeeController {
     @PostMapping
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void addEmployee(@Valid @RequestBody EmployeeRequest employeeRequest) {
-        employeeService.save(employeeRequest);
+        employeeService.save(0L, employeeRequest);
     }
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updateEmployee(@Min(value = 1) @PathVariable long id,@Valid @RequestBody EmployeeRequest employeeRequest) {
-        employeeService.update(id, employeeRequest);
+        employeeService.save(id, employeeRequest);
     }
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)

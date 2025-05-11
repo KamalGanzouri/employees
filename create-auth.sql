@@ -7,7 +7,7 @@ DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
   username VARCHAR(50) NOT NULL,
-  password CHAR(68) NOT NULL,
+  password VARCHAR(50) NOT NULL,
   enabled BOOLEAN NOT NULL,
   PRIMARY KEY (username)
 );
@@ -15,16 +15,12 @@ CREATE TABLE users (
 --
 -- Inserting data for table `users`
 --
--- The passwords are encrypted using BCrypt
--- A generation tool is available at: https://www.luv2code.com/generate-bcrypt-password
--- Default passwords here are: fun123
---
 
 INSERT INTO users (username, password, enabled)
 VALUES
-('john', '{bcrypt}$2a$10$qeS0HEh7urweMojsnwNAR.vcXJeXR1UcMRZ2WcGQl9YeuspUdgF.q', TRUE),
-('mary', '{bcrypt}$2a$10$qeS0HEh7urweMojsnwNAR.vcXJeXR1UcMRZ2WcGQl9YeuspUdgF.q', TRUE),
-('susan', '{bcrypt}$2a$10$qeS0HEh7urweMojsnwNAR.vcXJeXR1UcMRZ2WcGQl9YeuspUdgF.q', TRUE);
+('john', '{noop}test123', TRUE),
+('mary', '{noop}test123', TRUE),
+('susan', '{noop}test123', TRUE);
 
 --
 -- Table structure for table `authorities`
